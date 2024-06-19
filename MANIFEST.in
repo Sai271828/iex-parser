@@ -1,11 +1,2 @@
-# Include all Python source files
-include *.py
-
-# Include all C++ source files
-include *.cpp
-include *.h
-
-# Include other relevant files
-include README.md
-include LICENSE
-recursive-include examples *.py *.cpp *.h
+include iex_parser/iex_parser.out
+include iex_parser/iex_parser_threaded.out
