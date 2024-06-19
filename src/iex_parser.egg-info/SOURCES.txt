@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+setup.cfg
+src/iex_parser.egg-info/PKG-INFO
+src/iex_parser.egg-info/SOURCES.txt
+src/iex_parser.egg-info/dependency_links.txt
+src/iex_parser.egg-info/top_level.txt

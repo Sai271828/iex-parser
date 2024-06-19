@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: iex-parser
+Version: 0.0.2
+Summary: short package description
+Home-page: https://github.com/Sai271828/iex-parser
+Author: Venkata Sai Narayana Bavisetty
+Author-email: venkatasainarayana@gmail.com
+Project-URL: Bug Tracker, https://github.com/Sai271828/iex-parser/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# iex-parser
