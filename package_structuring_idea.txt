@@ -15,11 +15,9 @@
 # Need to add dependencies to the pypi package
     - tqdm
     - requests
+    - gunzip
+    - tcpdump
     - g++ ??
-
-
-# Currently the paths for the *.out files are not being fixed. IDK what the nice way to fix this is
-
 
 # Need to change gunzip > tcpdump > iex_parser pipelines to make it OS independant
 # Use C++ libraries to read packets from .pcap.gz file
