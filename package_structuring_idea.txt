@@ -1,0 +1,26 @@
+- iex_parser
+    - __init__.py
+    - download.py      # Module with download logic
+        - have function to download one date
+        - function to download multiple dates
+    - parse.py         # Module with parse logic
+        - single and multiple dates
+        - command line execution and use as a library function
+    - *.cpp            # Python binding for these files?
+    - *.out and *.h    # Should we include these compiled files?
+
+# Fix paths for logger file
+# Change logging to file to some other method
+
+# Need to add dependencies to the pypi package
+    - tqdm
+    - requests
+    - g++ ??
+
+
+# Currently the paths for the *.out files are not being fixed. IDK what the nice way to fix this is
+
+
+# Need to change gunzip > tcpdump > iex_parser pipelines to make it OS independant
+# Use C++ libraries to read packets from .pcap.gz file
+# This way the code can be compiled on any OS
