@@ -12,7 +12,6 @@ from urllib.parse import unquote
 import os.path
 from os import path
 from tqdm import tqdm
-import requests
 import sys
 
 class IexMarketDataFile(object):

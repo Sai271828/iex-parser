@@ -1,13 +1,14 @@
 - iex_parser
     - __init__.py
-    - download.py      # Module with download logic
+        - parse file
+        - parse single and multiple dates
+    - download.py
         - have function to download one date
         - function to download multiple dates
-    - parse.py         # Module with parse logic
-        - single and multiple dates
-        - command line execution and use as a library function
-    - *.cpp            # Python binding for these files?
-    - *.out and *.h    # Should we include these compiled files?
+    - cpp
+        - *.cpp
+        - *.h             # Python binding for these files?
+    - *.out               # Should we include these compiled files?
 
 # Fix paths for logger file
 # Change logging to file to some other method
