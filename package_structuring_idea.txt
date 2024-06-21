@@ -8,7 +8,8 @@
     - cpp
         - *.cpp
         - *.h             # Python binding for these files?
-    - *.out               # Should we include these compiled files?
+    - bin
+        -*.out            # Should we include these compiled files?
 
 # Fix paths for logger file
 # Change logging to file to some other method
@@ -19,7 +20,3 @@
     - gunzip
     - tcpdump
     - g++ ??
-
-# Need to change gunzip > tcpdump > iex_parser pipelines to make it OS independant
-# Use C++ libraries to read packets from .pcap.gz file
-# This way the code can be compiled on any OS
