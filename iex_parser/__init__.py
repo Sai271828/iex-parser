@@ -49,8 +49,10 @@ def parse_file(file_path: str, parsed_folder: str, symbol: str, split: bool = Fa
         else:
             # Use compiled C++ binary to parse selected symbols
             IEX_PARSER =  os.path.join(dir_path, 'iex_parser_threaded.out')
+    
+    parsed_prefix = os.path.join(parsed_folder, os.path.basename(file_path).replace(".pcap.gz", ""))
         
-    command2 =f"gunzip -d -c {file_path} | tcpdump -r - -w - -s 0 |  {IEX_PARSER} /dev/stdin {parsed_folder} {symbol}"
+    command2 =f"gunzip -d -c {file_path} | tcpdump -r - -w - -s 0 |  {IEX_PARSER} /dev/stdin {parsed_prefix} {symbol}"
     subprocess.run(command2, shell=True)
 
 def parse_date(date_str: str, download_dir: str, parsed_folder: str, symbol: str, download: bool = True, split: bool = False):
