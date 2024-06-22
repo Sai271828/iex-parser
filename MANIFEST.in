@@ -1,2 +1,0 @@
-include iex_parser/iex_parser.out
-include iex_parser/iex_parser_threaded.out
