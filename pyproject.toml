@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "iex-parser"
-version = "0.1.6"
+version = "0.2.3"
 description = "A package with a C++ module"
 authors = [
     { name = "Your Name", email = "your.email@example.com" },
@@ -14,7 +14,7 @@ keywords = []
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: UNIX",
+    "Operating System :: POSIX :: Linux",
 ]
 dependencies = [
     "tqdm >= 4.62.3",
