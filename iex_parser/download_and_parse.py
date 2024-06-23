@@ -1,6 +1,6 @@
 import os
 from datetime import timedelta, datetime
-from download_iex_pcaps import download_dates
+from iex_parser.download_iex_pcaps import download_dates
 import glob
 import subprocess
 import argparse
