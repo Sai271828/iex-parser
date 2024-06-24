@@ -111,7 +111,7 @@ This is dependent on the `logger.cpp` file. If you do not wish to use logger, si
 To utilize the parser, furnish the input pcap file and the output CSV file as command-line arguments:
 
 ```bash
-gunzip -d -c input.pcap.gz | tcpdump -r - -w - -s 0 | /vagrant/parsers/IEX/src/iex_parser.out /dev/stdin output_folder symbol
+gunzip -d -c input.pcap.gz | tcpdump -r - -w - -s 0 | iex_parser.out /dev/stdin output_folder symbol
 ```
 
 - input.pcap.gz: The path to the pcap.gz file containing IEX market data.
