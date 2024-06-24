@@ -41,14 +41,14 @@ def parse_file(file_path: str, parsed_folder: str, symbol: str, split: bool = Fa
     """
     if split=="True":
         # Use compiled C++ binary to parse and split output files
-        IEX_PARSER = os.path.join(dir_path, 'iex_parser_split.out')
+        IEX_PARSER = os.path.join(dir_path, 'bin/iex_parser_split.out')
     else:
         if symbol == "ALL":
             # Use compiled C++ binary to parse ALL symbols
-            IEX_PARSER = os.path.join(dir_path, 'iex_parser_all_threaded.out')
+            IEX_PARSER = os.path.join(dir_path, 'bin/iex_parser_all_threaded.out')
         else:
             # Use compiled C++ binary to parse selected symbols
-            IEX_PARSER =  os.path.join(dir_path, 'iex_parser_threaded.out')
+            IEX_PARSER =  os.path.join(dir_path, 'bin/iex_parser_threaded.out')
     
     parsed_prefix = os.path.join(parsed_folder, os.path.basename(file_path).replace(".pcap.gz", ""))
         
