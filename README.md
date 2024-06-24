@@ -24,7 +24,27 @@ This requires Linux OS or Windows WSL terminal to run.
 
 ## How to use
 
-Install this package using pip and use the corresponding package function.
+1. Install this package using pip.
+```
+pip install -i https://test.pypi.org/simple/ iex-parser
+```
+2. Create a `symbols.txt` file to filter the desired symbols
+```
+AAPL
+MSFT
+
+```
+3. Run the following python script
+```
+from iex_parser import parse_date
+
+download_folder = ...
+
+parsed_folder = ...
+
+parse_date("2023-10-30",download_folder,parsed_folder,"symbols.txt")
+```
+
 
 # Package Functions
 
