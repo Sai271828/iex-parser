@@ -1,6 +1,6 @@
 # IEX Data Download and Parsing
 
-This repository contains various C++ and Python files needed to download and parse IEX (Investors Exchange) data. Some of the code and logic was taken from [David Lariviere](https://gitlab.engr.illinois.edu/shared_code/iexdownloaderparser)
+This repository contains various C++ and Python files needed to download and parse IEX (Investors Exchange) data.
 
 **IEX Parser**
 =============================

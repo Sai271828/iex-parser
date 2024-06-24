@@ -1,6 +1,6 @@
 import os
 from datetime import timedelta, datetime
-from .download_iex_pcaps import download_dates
+from .download import download_hist_file
 import glob
 import subprocess
 import argparse
@@ -77,9 +77,9 @@ def parse_date(date_str: str, download_dir: str, parsed_folder: str, symbol: str
     file_pattern = f"data_feeds_{date_str_2}_{date_str_2}_IEXTP1_DEEP1.0.pcap.gz"
 
     if download:
-        download_dates(download_dir, date_str, date_str, 'DEEP')
+        download_hist_file(date_str_2, download_dir)
 
-    matching_files = glob.glob(f"{download_dir}/DEEP/{file_pattern}")
+    matching_files = glob.glob(f"{download_dir}/{file_pattern}")
 
     for file_path in matching_files:
         parse_file(file_path, parsed_folder, symbol,split=split)
