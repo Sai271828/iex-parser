@@ -48,6 +48,13 @@ Output
 The parsed data will be saved in the `parsed_folder` directory. The parsed data will be saved in the following format:
 
 .. csv-table:: TRD file
+
    :header: Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Size,Price,Trade ID,Sale Condition
    1696248274476274944,1696248274476249406,60091,1696248274475865577,T,MSFT,10,316.350000,2275739,EXTENDED_HOURS|ODD_LOT
    1696248522899780096,1696248522899762796,70817,1696248522899669709,T,AAPL,20,171.410000,2683260,EXTENDED_HOURS|ODD_LOT
+
+.. csv-table:: PRL file
+
+   :header: Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Price,Size,Record Type,Flag,ASK
+   1696248000327041024,1696248000326948634,45631,1696248000184809932,PRL,MSFT,348.000000,20,R,1,1
+   1696249295813316096,1696249295813302703,104927,1696249295813269151,PRL,AAPL,171.130000,243,R,1,1
