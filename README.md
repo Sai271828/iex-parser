@@ -1,3 +1,5 @@
+[![Documentation Status](https://readthedocs.org/projects/iex-parser/badge/?version=latest)](https://iex-parser.readthedocs.io/en/latest/?badge=latest)
+
 # IEX Data Download and Parsing
 
 This repository contains various C++ and Python files needed to download and parse IEX (Investors Exchange) data. The C++ parsers are designed to efficiently extract data from DEEP pcap files provided by the Investors Exchange (IEX). Currently, it supports the parsing of:
