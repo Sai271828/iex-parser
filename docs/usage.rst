@@ -1,9 +1,12 @@
 .. _requirements:
 
+
+
+
 Requirements
 ------------
 
-The compiled binaries in this package can only be run on a Linux machine or a Windows machine with the Windows Subsystem for Linux (WSL) installed. Look at :ref:`unsupported_os` for more information on comipling the binaries for other operating systems.
+The compiled binaries in this package can only be run on a Linux machine or a Windows machine with the Windows Subsystem for Linux (WSL) installed. Look at :ref:`unsupported_os` for more information on compiling the binaries for other operating systems.
 
 .. _installation:
 
@@ -11,6 +14,9 @@ Installation
 ------------
 
 To use the IEX Parser, first install it using pip:
+
+   
+   `Will need to be edited to point to the correct location of the package!!!`
 
 .. code-block:: console
 
