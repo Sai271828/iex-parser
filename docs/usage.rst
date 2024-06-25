@@ -29,8 +29,6 @@ Create a `symbols.txt` file to filter the desired symbols
    MSFT
 
 
-.. include:: symbols.txt
-
 Run the following python script
 
 >>> from iex_parser import parse_date

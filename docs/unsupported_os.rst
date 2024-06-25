@@ -1,9 +1,10 @@
 
-For compiling the C++ files on unsupported OS
-=============================================
+.. _unsupported_os:
 
+Unsupported OS
+==============
 
-To compile the program, ensure you have a C++ compiler installed (e.g., g++) and cd into the cpp directory. Execute the following commands:
+To compile the program, ensure you have a C++ compiler installed (e.g., g++) and cd into the cpp directory after cloning the project repository. Execute the following commands:
 
 .. code-block:: bash
 
