@@ -40,7 +40,7 @@ def parse_file(file_path: str, parsed_folder: str, symbol: str, split: bool = Fa
         split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
         
     Returns:
-    None
+        None
     """
     if split=="True":
         # Use compiled C++ binary to parse and split output files
@@ -76,7 +76,7 @@ def parse_date(date_str: str, download_dir: str, parsed_folder: str, symbol: str
         split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
         
     Returns:
-    None
+        None
     """
     if valid_date(date_str) is None:
         return
@@ -113,7 +113,7 @@ def parse_dates(start_date: str, end_date: str, download_dir: str, parsed_folder
         split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
     
     Returns:
-    None
+        None
     """
     if valid_date(start_date) is None or valid_date(end_date) is None:
         return

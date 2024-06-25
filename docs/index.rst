@@ -1,5 +1,15 @@
 .. include:: ../README.rst
 
+Contents
+========
+
+.. toctree::
+
+   Home <self>
+   usage
+   functions
+
+
 IEX Parser Documentation
 ===================================
 
@@ -24,12 +34,3 @@ how to :ref:`installation` the project.
 
    This project is under active development.
 
-Contents
---------
-
-.. toctree::
-
-   Home <self>
-   usage
-   functions
-   api
