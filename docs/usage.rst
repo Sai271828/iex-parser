@@ -1,34 +1,39 @@
 Usage
 =====
 
+.. _requirements:
+
+Requirements
+------------
+
+The compiled binaries in this package can only be run on a Linux machine or a Windows machine with the Windows Subsystem for Linux (WSL) installed.
+
 .. _installation:
 
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+To use the IEX Parser, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   $ pip install -i https://test.pypi.org/simple/ iex-parser
 
-Creating recipes
+.. _download_and_parse:
+
+Downloading and Parsing data
 ----------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+Create a `symbols.txt` file to filter the desired symbols
+.. code-block:: console
+   AAPL
+   MSFT
 
-.. autofunction:: lumache.get_random_ingredients
+Run the following python script
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+>>> from iex_parser import parse_date
 
-.. autoexception:: lumache.InvalidKindError
+>>> download_folder = ...
+>>> parsed_folder = ...
 
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
-
+>>> parse_date("2023-10-30",download_folder,parsed_folder,"symbols.txt",download=True)

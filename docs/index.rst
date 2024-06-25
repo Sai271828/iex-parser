@@ -1,12 +1,21 @@
 .. include:: ../README.rst
 
-Welcome to Lumache's documentation!
+IEX Parser Documentation
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+This package contains various Python functions needed to download and parse IEX (Investors Exchange) data. The parser, using C++ beckend, is designed to efficiently extract data from DEEP pcap files provided by the Investors Exchange (IEX). Currently, it supports the parsing of:
+
+* **Trade reports**
+* **Price level updates**
+
+Key benefits:
+-----------------------------------
+
+* **High-performance parsing**: Significantly faster than Python parsers
+* **Multi-timestamp support**: Provides three timestamps for each event:
+	+ **Event timestamp** (from the matching engine)
+	+ **Packet send timestamp**
+	+ **Packet capture timestamp**
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.
@@ -22,4 +31,5 @@ Contents
 
    Home <self>
    usage
+   functions
    api
