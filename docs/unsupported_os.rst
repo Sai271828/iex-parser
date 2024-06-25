@@ -20,6 +20,7 @@ How to Use
 To utilize the parser, furnish the input pcap file and the output CSV file as command-line arguments:
 
 .. code-block:: bash
+    
     gunzip -d -c input.pcap.gz | tcpdump -r - -w - -s 0 | iex_parser.out /dev/stdin output_folder symbol
 
 
