@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usage &mdash; Basic Sphinx Example Project  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Requirements &mdash; C++ IEX Parser  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API" href="api.html" />
-    <link rel="prev" title="Welcome to Lumache’s documentation!" href="index.html" /> 
+    <link rel="next" title="Package Functions" href="functions.html" />
+    <link rel="prev" title="Contents" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Basic Sphinx Example Project
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            C++ IEX Parser
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -40,12 +46,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-recipes">Creating recipes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#output">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Package Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unsupported_os.html">Unsupported OS</a></li>
 </ul>
 
         </div>
@@ -54,15 +60,15 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Basic Sphinx Example Project</a>
+          <a href="index.html">C++ IEX Parser</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Usage</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Requirements</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,43 +78,131 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h1>
+  <section id="requirements">
+<span id="id1"></span><h1>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h1>
+<p>The compiled binaries in this package can only be run on a Linux machine or a Windows machine with the Windows Subsystem for Linux (WSL) installed. Look at <a class="reference internal" href="unsupported_os.html#unsupported-os"><span class="std std-ref">Unsupported OS</span></a> for more information on compiling the binaries for other operating systems.</p>
+</section>
 <section id="installation">
-<span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
-<p>To use Lumache, first install it using pip:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>lumache
+<span id="id2"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<p>To use the IEX Parser, first install it using pip:</p>
+<blockquote>
+<div><p><cite>Will need to be edited to point to the correct location of the package!!!</cite></p>
+</div></blockquote>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>iex-parser
 </pre></div>
 </div>
 </section>
-<section id="creating-recipes">
-<h2>Creating recipes<a class="headerlink" href="#creating-recipes" title="Permalink to this heading"></a></h2>
-<p>To retrieve a list of random ingredients,
-you can use the <code class="docutils literal notranslate"><span class="pre">lumache.get_random_ingredients()</span></code> function:</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter should be either <code class="docutils literal notranslate"><span class="pre">&quot;meat&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;fish&quot;</span></code>,
-or <code class="docutils literal notranslate"><span class="pre">&quot;veggies&quot;</span></code>. Otherwise, <code class="xref py py-func docutils literal notranslate"><span class="pre">lumache.get_random_ingredients()</span></code>
-will raise an exception.</p>
-<p>For example:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lumache</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lumache</span><span class="o">.</span><span class="n">get_random_ingredients</span><span class="p">()</span>
-<span class="go">[&#39;shells&#39;, &#39;gorgonzola&#39;, &#39;parsley&#39;]</span>
+<section id="usage">
+<span id="id3"></span><h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<p>Create a <cite>symbols.txt</cite> file to filter the desired symbols</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>AAPL
+MSFT
+</pre></div>
+</div>
+<p>Run the following python script</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iex_parser</span> <span class="kn">import</span> <span class="n">parse_date</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">download_folder</span> <span class="o">=</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parsed_folder</span> <span class="o">=</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_date</span><span class="p">(</span><span class="s2">&quot;2023-10-30&quot;</span><span class="p">,</span><span class="n">download_folder</span><span class="p">,</span><span class="n">parsed_folder</span><span class="p">,</span><span class="s2">&quot;symbols.txt&quot;</span><span class="p">,</span><span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
+<section id="output">
+<h1>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h1>
+<p>The parsed data will be saved in the <cite>parsed_folder</cite> directory. The parsed data will be saved in the following format:</p>
+<p>Trades output file</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Packet Capture Time</p></td>
+<td><p>Send Time</p></td>
+<td><p>Message ID</p></td>
+<td><p>Raw Timestamp</p></td>
+<td><p>Tick Type</p></td>
+<td><p>Symbol</p></td>
+<td><p>Size</p></td>
+<td><p>Price</p></td>
+<td><p>Trade ID</p></td>
+<td><p>Sale Condition</p></td>
+</tr>
+<tr class="row-even"><td><p>1696248274476274944</p></td>
+<td><p>1696248274476249406</p></td>
+<td><p>60091</p></td>
+<td><p>1696248274475865577</p></td>
+<td><p>T</p></td>
+<td><p>MSFT</p></td>
+<td><p>10</p></td>
+<td><p>316.350000</p></td>
+<td><p>2275739</p></td>
+<td><p>EXTENDED_HOURS|ODD_LOT</p></td>
+</tr>
+<tr class="row-odd"><td><p>1696248522899780096</p></td>
+<td><p>1696248522899762796</p></td>
+<td><p>70817</p></td>
+<td><p>1696248522899669709</p></td>
+<td><p>T</p></td>
+<td><p>AAPL</p></td>
+<td><p>20</p></td>
+<td><p>171.410000</p></td>
+<td><p>2683260</p></td>
+<td><p>EXTENDED_HOURS|ODD_LOT</p></td>
+</tr>
+</tbody>
+</table>
+<p>Price Level output file</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Packet Capture Time</p></td>
+<td><p>Send Time</p></td>
+<td><p>Message ID</p></td>
+<td><p>Raw Timestamp</p></td>
+<td><p>Tick Type</p></td>
+<td><p>Symbol</p></td>
+<td><p>Price</p></td>
+<td><p>Size</p></td>
+<td><p>Record Type</p></td>
+<td><p>Flag</p></td>
+<td><p>ASK</p></td>
+</tr>
+<tr class="row-even"><td><p>1696248000327041024</p></td>
+<td><p>1696248000326948634</p></td>
+<td><p>45631</p></td>
+<td><p>1696248000184809932</p></td>
+<td><p>PRL</p></td>
+<td><p>MSFT</p></td>
+<td><p>348.000000</p></td>
+<td><p>20</p></td>
+<td><p>R</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1696249295813316096</p></td>
+<td><p>1696249295813302703</p></td>
+<td><p>104927</p></td>
+<td><p>1696249295813269151</p></td>
+<td><p>PRL</p></td>
+<td><p>AAPL</p></td>
+<td><p>171.130000</p></td>
+<td><p>243</p></td>
+<td><p>R</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Lumache’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="functions.html" class="btn btn-neutral float-right" title="Package Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+    <p>&#169; Copyright Copyright (c) 2024, VENKATA SAI NARAYANA BAVISETTY, KARTHIK VASU.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

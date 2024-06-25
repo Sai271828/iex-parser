@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "Basic Sphinx Example Project"
-copyright = "2022, Read the Docs core team"
-author = "Read the Docs core team"
+project = "C++ IEX Parser"
+copyright = "Copyright (c) 2024, VENKATA SAI NARAYANA BAVISETTY, KARTHIK VASU"
+author = "Karthik Vasu, Venkata Sai Narayana Bavisetty"
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,6 +31,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
+    "sphinx.ext.viewcode",
 ]
 
 intersphinx_mapping = {

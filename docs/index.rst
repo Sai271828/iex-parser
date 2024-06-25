@@ -1,9 +1,9 @@
-.. include:: ../README.rst
 
 Contents
 ========
 
 .. toctree::
+   :maxdepth: 1
 
    Home <self>
    usage

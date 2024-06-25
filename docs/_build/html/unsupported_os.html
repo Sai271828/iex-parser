@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contents &mdash; C++ IEX Parser  documentation</title>
+  <title>Unsupported OS &mdash; C++ IEX Parser  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Requirements" href="usage.html" /> 
+    <link rel="prev" title="Package Functions" href="functions.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
 
           
           
-          <a href="#" class="icon icon-home">
+          <a href="index.html" class="icon icon-home">
             C++ IEX Parser
           </a>
 <div role="search">
@@ -44,13 +44,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html#installation">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html#usage">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html#output">Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Package Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="unsupported_os.html">Unsupported OS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Unsupported OS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to Use</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -59,17 +62,17 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">C++ IEX Parser</a>
+          <a href="index.html">C++ IEX Parser</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Contents</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Unsupported OS</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/unsupported_os.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -77,46 +80,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="contents">
-<h1>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#installation">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#output">Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">Package Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="unsupported_os.html">Unsupported OS</a></li>
-</ul>
+  <section id="unsupported-os">
+<span id="id1"></span><h1>Unsupported OS<a class="headerlink" href="#unsupported-os" title="Link to this heading"></a></h1>
+<p>To compile the program, ensure you have a C++ compiler installed (e.g., g++) and cd into the cpp directory after cloning the project repository. Execute the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++<span class="w"> </span>-O2<span class="w"> </span>logger.cpp<span class="w"> </span>decode_messages.cpp<span class="w"> </span>iex_parser_threaded.cpp<span class="w"> </span>-o<span class="w"> </span>iex_parser_threaded.out<span class="w"> </span>-pthread
+g++<span class="w"> </span>-O2<span class="w"> </span>logger.cpp<span class="w"> </span>decode_messages.cpp<span class="w"> </span>iex_parser.cpp<span class="w"> </span>-o<span class="w"> </span>iex_parser.out
+g++<span class="w"> </span>-O2<span class="w"> </span>logger.cpp<span class="w"> </span>decode_messages.cpp<span class="w"> </span>iex_parser_split.cpp<span class="w"> </span>-o<span class="w"> </span>iex_parser_split.out
+</pre></div>
 </div>
-</section>
-<section id="iex-parser-documentation">
-<h1>IEX Parser Documentation<a class="headerlink" href="#iex-parser-documentation" title="Link to this heading"></a></h1>
-<p>This package contains various Python functions needed to download and parse IEX (Investors Exchange) data. The parser, using C++ beckend, is designed to efficiently extract data from DEEP pcap files provided by the Investors Exchange (IEX). Currently, it supports the parsing of:</p>
+<p>This is dependent on the <cite>logger.cpp</cite> file. If you do not wish to use logger, simply remove all the logging line and compile just the parser.</p>
+<section id="how-to-use">
+<h2>How to Use<a class="headerlink" href="#how-to-use" title="Link to this heading"></a></h2>
+<p>To utilize the parser, furnish the input pcap file and the output CSV file as command-line arguments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gunzip<span class="w"> </span>-d<span class="w"> </span>-c<span class="w"> </span>input.pcap.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tcpdump<span class="w"> </span>-r<span class="w"> </span>-<span class="w"> </span>-w<span class="w"> </span>-<span class="w"> </span>-s<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>iex_parser.out<span class="w"> </span>/dev/stdin<span class="w"> </span>output_folder<span class="w"> </span>symbol
+</pre></div>
+</div>
 <ul class="simple">
-<li><p><strong>Trade reports</strong></p></li>
-<li><p><strong>Price level updates</strong></p></li>
-</ul>
-<section id="key-benefits">
-<h2>Key benefits:<a class="headerlink" href="#key-benefits" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><strong>High-performance parsing</strong>: Significantly faster than Python parsers</p></li>
+<li><p>input.pcap.gz: The path to the pcap.gz file containing IEX market data.</p></li>
+<li><p>output_folder: The path to the folder to save parsed csv files</p></li>
 <li><dl class="simple">
-<dt><strong>Multi-timestamp support</strong>: Provides three timestamps for each event:</dt><dd><ul>
-<li><p><strong>Event timestamp</strong> (from the matching engine)</p></li>
-<li><p><strong>Packet send timestamp</strong></p></li>
-<li><p><strong>Packet capture timestamp</strong></p></li>
+<dt>symbol:</dt><dd><ul>
+<li><p><cite>ALL</cite> for parsing all symbols or</p></li>
+<li><p>For select symbols, a path to a .txt file with each line a new symbol</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<p>Check out the <a class="reference internal" href="usage.html"><span class="doc">Requirements</span></a> section for further information, including <a class="reference internal" href="usage.html#installation"><span class="std std-ref">Installation</span></a> of this project.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This project is under active development.</p>
-</div>
 </section>
 </section>
 
@@ -124,7 +114,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="usage.html" class="btn btn-neutral float-right" title="Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="functions.html" class="btn btn-neutral float-left" title="Package Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
