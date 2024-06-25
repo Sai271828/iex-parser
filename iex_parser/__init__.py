@@ -125,7 +125,9 @@ def parse_dates(start_date: str, end_date: str, download_dir: str, parsed_folder
     while current_date <= end_date:
 
         current_date_str = current_date.strftime("%Y-%m-%d")
-
-        parse_date(current_date_str, download_dir, parsed_folder, symbol,download,split=split)
+        try:
+            parse_date(current_date_str, download_dir, parsed_folder, symbol,download,split=split)
+        except Exception as e:
+            print(f"Error parsing date {current_date_str}: {e}")
 
         current_date += timedelta(days=1)
