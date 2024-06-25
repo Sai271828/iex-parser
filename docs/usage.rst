@@ -1,6 +1,3 @@
-Usage
-=====
-
 .. _requirements:
 
 Requirements
@@ -17,19 +14,22 @@ To use the IEX Parser, first install it using pip:
 
 .. code-block:: console
 
-   $ pip install -i https://test.pypi.org/simple/ iex-parser
+   $ pip install -i https://test.pypi.org/simple/ iex-parser   
 
-.. _download_and_parse:
+.. _usage:
 
-Downloading and Parsing data
+Usage
 ----------------
 
 Create a `symbols.txt` file to filter the desired symbols
 
-.. code-block:: text
+.. code-block:: bash
+
    AAPL
    MSFT
 
+
+.. include:: symbols.txt
 
 Run the following python script
 

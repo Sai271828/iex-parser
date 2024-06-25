@@ -8,6 +8,7 @@ Contents
    Home <self>
    usage
    functions
+   unsupported_os
 
 
 IEX Parser Documentation
@@ -27,8 +28,7 @@ Key benefits:
 	+ **Packet send timestamp**
 	+ **Packet capture timestamp**
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :doc:`usage` section for further information, including :ref:`installation` of this project.
 
 .. note::
 
