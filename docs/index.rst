@@ -9,6 +9,7 @@ Contents
    usage
    functions
    unsupported_os
+   iex_format
 
 
 IEX Parser Documentation
