@@ -7,10 +7,12 @@ def get_hist_data(date: str):
     """
     Retrieves the historical data available on IEX (https://iextrading.com/api/1.0/hist) and parses it as JSON.
     
-    Args:
+    Parameters:
+
         date (str): The date in the format YYYYMMDD.
 
     Returns:
+
         dict: The parsed JSON data for the required date.
     """
     url = "https://iextrading.com/api/1.0/hist"
@@ -41,7 +43,7 @@ def download_hist_file(date: str, download_dir: str) -> bool:
     """
     Checks the hist_data JSON file for a specific file and downloads it if it doesn't exist.
     
-    Args:
+    Parameters:
         date (str): The date in the format YYYYMMDD.
         download_dir (str): The directory to download the file to.
         

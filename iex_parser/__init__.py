@@ -14,9 +14,11 @@ def valid_date(s: str) -> str:
     This function checks if a given string represents a valid date in the format YYYY-MM-DD.
     
     Parameters:
+
     s (str): The string to be checked.
     
     Returns:
+
     s (str): The input string if it represents a valid date, otherwise raises an error.
     """
     try:
@@ -31,9 +33,13 @@ def parse_file(file_path: str, parsed_folder: str, symbol: str, split: bool = Fa
     This function parses a file using the IEX parser and redirects the output to a specified folder.
     
     Parameters:
+
     file_path (str): The path to the file to be parsed.
+
     parsed_folder (str): The path to the folder where the parsed output should be saved.
+
     symbol (str): Path to a txt file with symbols to parse. Must have one symbol per line. If "ALL", all symbols are parsed.
+
     split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
     
     Returns:
@@ -60,11 +66,17 @@ def parse_date(date_str: str, download_dir: str, parsed_folder: str, symbol: str
     This function (can) download and parse the IEXTP1 DEEP1.0 pcap files for a given date.
     
     Parameters:
+
     date_str (str): The date string to be parsed. Format YYYY-MM-DD
+
     download_dir (str): The directory where the files are downloaded.
+
     parsed_folder (str): The directory where the parsed output should be saved.
+
     symbol (str): Path to a txt file with symbols to parse. Must have one symbol per line. If "ALL", all symbols are parsed.
+
     download (bool): Whether to download the files. Default is True.
+
     split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
     
     Returns:
@@ -90,12 +102,19 @@ def parse_dates(start_date: str, end_date: str, download_dir: str, parsed_folder
     This function parses a range of dates and (downloads and) parses the corresponding IEXTP1 DEEP1.0 pcap files.
     
     Parameters:
+
     start_date (str): The start date string in the format YYYY-MM-DD.
+
     end_date (str): The end date string in the format YYYY-MM-DD.
+
     download_dir (str): The directory where the files are downloaded.
+
     parsed_folder (str): The directory where the parsed output should be saved.
+
     symbol (str): Path to a txt file with symbols to parse. Must have one symbol per line. If "ALL", all symbols are parsed.
+
     download (bool): Whether to download the files. Default is False.
+    
     split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
     
     Returns:
