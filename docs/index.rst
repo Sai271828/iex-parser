@@ -24,10 +24,11 @@ Key benefits:
 =============
 
 * **High-performance parsing**: Significantly faster than other available Python parsers.
-* **Multi-timestamp support**: Provides three timestamps for each event:
-  - **Event timestamp**: From the matching engine.
-  - **Packet send timestamp**: Indicates when the packet was sent.
-  - **Packet capture timestamp**: Marks when the packet was captured.
+* **Multi-timestamp support**: Provides three timestamps for each event.
+
+      * **Event timestamp**: Indicates when the event happened in the matching engine.
+      * **Packet send timestamp**: Indicates when the packet was sent.
+      * **Packet capture timestamp**: Indicates when the packet was captured.
 
 
 

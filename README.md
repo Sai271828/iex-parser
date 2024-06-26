@@ -45,3 +45,25 @@ parse_date("2023-10-30",download_folder,parsed_folder,"symbols.txt")
 
 ## Output
 The output CSV file contains parsed trade reports and price level updates.
+
+
+
+## Acknowledgement
+
+This project extends the work of the authors done as part of  IE 421 course at [University of Illinois Urbana-Champaign](https://illinois.edu/) . The previous project repository can be found at [this link](https://gitlab.engr.illinois.edu/ie421_high_frequency_trading_spring_2024/ie421_hft_spring_2024_group_03/group_03_project) (a private UIUC repository at the time of this writing).
+
+
+## Citing this Work
+
+To cite this work in academic papers or publications, you can use the following BibTeX format:
+
+```bibtex
+@misc{bavisettyvasu,
+  author       = {Bavisetty, Venkata Sai Narayana and Vasu, Karthik},
+  title        = {IEX C++ Parser},
+  year         = {2024},
+  publisher    = {GitHub},
+  journal      = {GitHub Repository},
+  howpublished = {\url{[Repository URL](https://github.com/Sai271828/iex-parser)}}
+}
+```
