@@ -23,11 +23,12 @@ The IEX exchange offers two types of historical data: DEEP and TOPS, both provid
 Key benefits:
 =============
 
-* **High-performance parsing**: Significantly faster than the available Python parsers
+* **High-performance parsing**: Significantly faster than other available Python parsers.
 * **Multi-timestamp support**: Provides three timestamps for each event:
-  + **Event timestamp** (from the matching engine)
-  + **Packet send timestamp**
-  + **Packet capture timestamp**
+  - **Event timestamp**: From the matching engine.
+  - **Packet send timestamp**: Indicates when the packet was sent.
+  - **Packet capture timestamp**: Marks when the packet was captured.
+
 
 
 Check out the :doc:`usage` section for further information, including :ref:`installation` of this project.
