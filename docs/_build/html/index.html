@@ -51,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html#output">Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Package Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unsupported_os.html">Unsupported OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iex_format.html">IEX-PCAP file format</a></li>
 </ul>
 
         </div>
@@ -88,36 +89,32 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html#output">Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Package Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unsupported_os.html">Unsupported OS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iex_format.html">IEX-PCAP file format</a></li>
 </ul>
 </div>
 </section>
 <section id="iex-parser-documentation">
 <h1>IEX Parser Documentation<a class="headerlink" href="#iex-parser-documentation" title="Link to this heading"></a></h1>
-<p>This package contains various Python functions needed to download and parse IEX (Investors Exchange) data. The parser, using C++ beckend, is designed to efficiently extract data from DEEP pcap files provided by the Investors Exchange (IEX). Currently, it supports the parsing of:</p>
+<p>The IEX exchange offers two types of historical data: DEEP and TOPS, both provided as PCAP files capturing network activity. This package provides a convenient API for extracting data from DEEP files. These files contain various types of messages, such as trade reports, bid submissions, security messages, etc. Currently, our package supports parsing two specific types of messages:</p>
 <ul class="simple">
-<li><p><strong>Trade reports</strong></p></li>
-<li><p><strong>Price level updates</strong></p></li>
+<li><p><strong>Trade reports</strong> - Detailed records of executed trades.</p></li>
+<li><p><strong>Price level updates</strong> - Information about changes in the bid and ask price levels.</p></li>
 </ul>
+</section>
 <section id="key-benefits">
-<h2>Key benefits:<a class="headerlink" href="#key-benefits" title="Link to this heading"></a></h2>
+<h1>Key benefits:<a class="headerlink" href="#key-benefits" title="Link to this heading"></a></h1>
 <ul class="simple">
-<li><p><strong>High-performance parsing</strong>: Significantly faster than Python parsers</p></li>
-<li><dl class="simple">
-<dt><strong>Multi-timestamp support</strong>: Provides three timestamps for each event:</dt><dd><ul>
-<li><p><strong>Event timestamp</strong> (from the matching engine)</p></li>
-<li><p><strong>Packet send timestamp</strong></p></li>
-<li><p><strong>Packet capture timestamp</strong></p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p><strong>High-performance parsing</strong>: Significantly faster than the available Python parsers</p></li>
+<li><p><strong>Multi-timestamp support</strong>: Provides three timestamps for each event:
++ <strong>Event timestamp</strong> (from the matching engine)
++ <strong>Packet send timestamp</strong>
++ <strong>Packet capture timestamp</strong></p></li>
 </ul>
 <p>Check out the <a class="reference internal" href="usage.html"><span class="doc">Requirements</span></a> section for further information, including <a class="reference internal" href="usage.html#installation"><span class="std std-ref">Installation</span></a> of this project.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This project is under active development.</p>
 </div>
-</section>
 </section>
 
 

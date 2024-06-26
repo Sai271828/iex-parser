@@ -1,12 +1,9 @@
 .. _requirements:
 
-
-
-
 Requirements
 ------------
 
-The compiled binaries in this package can only be run on a Linux machine or a Windows machine with the Windows Subsystem for Linux (WSL) installed. Look at :ref:`unsupported_os` for more information on compiling the binaries for other operating systems.
+This package contains compiled binaries that can only be run on a Linux machine or a Windows machine with the Windows Subsystem for Linux (WSL) installed. Look at :ref:`unsupported_os` for more information on compiling the binaries for other operating systems.
 
 .. _installation:
 
@@ -45,20 +42,59 @@ Run the following python script
 Output
 ----------------
 
-The parsed data will be saved in the `parsed_folder` directory. The parsed data will be saved in the following format:
 
-Trades output file
+The parsed data will be saved in the `parsed_folder` directory. Currently, two types of data are being parsed: trade reports and price levels. The schemas are as follows
 
-.. csv-table::
++ Trade report schema
 
-   Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Size,Price,Trade ID,Sale Condition
-   1696248274476274944,1696248274476249406,60091,1696248274475865577,T,MSFT,10,316.350000,2275739,EXTENDED_HOURS|ODD_LOT
-   1696248522899780096,1696248522899762796,70817,1696248522899669709,T,AAPL,20,171.410000,2683260,EXTENDED_HOURS|ODD_LOT
 
-Price Level output file
+   .. csv-table:: Trade Report Schema
+      :header: "Column Name", "Description"
+      :widths: 20, 80
 
-.. csv-table::
+      "Packet Capture Time", "The time when the packet was captured in Nanosecondssince epoch."
+      "Send Time", "The time when the message was sent in Nanoseconds since epoch."
+      "Message ID", "The unique identifier for the message."
+      "Raw Timestamp", "The raw timestamp of the message in Nanoseconds since epoch."
+      "Tick Type", "The type of tick (e.g., trade, quote)."
+      "Symbol", "The stock symbol (e.g., MSFT, AAPL)."
+      "Size", "The size of the trade."
+      "Price", "The price of the trade."
+      "Trade ID", "The unique identifier for the trade."
+      "Sale Condition", "Additional conditions of the sale (e.g., EXTENDED_HOURS, ODD_LOT)."
 
-   Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Price,Size,Record Type,Flag,ASK
-   1696248000327041024,1696248000326948634,45631,1696248000184809932,PRL,MSFT,348.000000,20,R,1,1
-   1696249295813316096,1696249295813302703,104927,1696249295813269151,PRL,AAPL,171.130000,243,R,1,1
+
+
+   Example trades output file
+
+   .. csv-table::
+
+      Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Size,Price,Trade ID,Sale Condition
+      1696248274476274944,1696248274476249406,60091,1696248274475865577,T,MSFT,10,316.350000,2275739,EXTENDED_HOURS|ODD_LOT
+      1696248522899780096,1696248522899762796,70817,1696248522899669709,T,AAPL,20,171.410000,2683260,EXTENDED_HOURS|ODD_LOT
+
+
++ Price Level Update schema
+   .. csv-table:: Price Level Update Schema
+      :header: "Column Name", "Description"
+      :widths: 20, 80
+
+      "Packet Capture Time", "The time when the packet was captured in nanoseconds since epoch."
+      "Send Time", "The time when the message was sent in nanoseconds since epoch."
+      "Message ID", "The unique identifier for the message."
+      "Raw Timestamp", "The raw timestamp of the message in nanoseconds since epoch."
+      "Tick Type", "The type of tick (e.g., trade, quote)."
+      "Symbol", "The stock symbol (e.g., MSFT, AAPL)."
+      "Price", "The price of the trade."
+      "Size", "The size of the trade."
+      "Record Type", "The type of record."
+      "Flag", "The flag indicating special conditions or states."
+      "ASK", "The ask price in the market."
+
+   Example Price Level output file
+
+   .. csv-table::
+
+      Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Price,Size,Record Type,Flag,ASK
+      1696248000327041024,1696248000326948634,45631,1696248000184809932,PRL,MSFT,348.000000,20,R,1,1
+      1696249295813316096,1696249295813302703,104927,1696249295813269151,PRL,AAPL,171.130000,243,R,1,1
