@@ -54,7 +54,7 @@ The parsed data will be saved in the `parsed_folder` directory. Currently, two t
 
       "Packet Capture Time", "The time when the packet was captured in Nanosecondssince epoch."
       "Send Time", "The time when the message was sent in Nanoseconds since epoch."
-      "Raw Timestamp", "The raw timestamp of the message in Nanoseconds since epoch."
+      "Exchange Timestamp", "The exchange timestamp of the message in Nanoseconds since epoch."
       "Tick Type", "The type of tick (e.g., trade, quote)."
       "Symbol", "The stock symbol (e.g., MSFT, AAPL)."
       "Size", "The size of the trade."
@@ -80,14 +80,14 @@ The parsed data will be saved in the `parsed_folder` directory. Currently, two t
 
       "Packet Capture Time", "The time when the packet was captured in nanoseconds since epoch."
       "Send Time", "The time when the message was sent in nanoseconds since epoch."
-      "Raw Timestamp", "The raw timestamp of the message in nanoseconds since epoch."
+      "Buy_Ask Flag", "The flag indicating whether the price level is a buy or ask price. 1 for Ask"
+      "Exchange Timestamp", "The exchange timestamp of the message in nanoseconds since epoch."
       "Tick Type", "The type of tick (e.g., trade, quote)."
       "Symbol", "The stock symbol (e.g., MSFT, AAPL)."
       "Price", "The price of the trade."
       "Size", "The size of the trade."
       "Record Type", "The type of record."
-      "Flag", "The flag indicating special conditions or states."
-      "ASK", "The ask price in the market."
+      "Event Flag", "The flag indicating special conditions or states."
 
    Example Price Level output file
 
