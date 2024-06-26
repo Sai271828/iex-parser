@@ -9,7 +9,7 @@
 #include <cstring>
 #include <iomanip>
 #include <string>
-#include "/vagrant/utils/logger.h"
+#include "logger.h"
 using namespace std;
 Log logger;
 
