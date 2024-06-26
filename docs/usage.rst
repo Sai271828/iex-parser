@@ -52,7 +52,7 @@ The parsed data will be saved in the `parsed_folder` directory. Currently, two t
       :header: "Column Name", "Description"
       :widths: 20, 80
 
-      "Packet Capture Time", "The time when the packet was captured in Nanosecondssince epoch."
+      "Packet Capture Time", "The time when the packet was captured in Nanoseconds since epoch."
       "Send Time", "The time when the message was sent in Nanoseconds since epoch."
       "Message ID", "The unique identifier for the message."
       "Raw Timestamp", "The raw timestamp of the message in Nanoseconds since epoch."
