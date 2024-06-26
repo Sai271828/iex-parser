@@ -54,7 +54,6 @@ The parsed data will be saved in the `parsed_folder` directory. Currently, two t
 
       "Packet Capture Time", "The time when the packet was captured in Nanosecondssince epoch."
       "Send Time", "The time when the message was sent in Nanoseconds since epoch."
-      "Message ID", "The unique identifier for the message."
       "Raw Timestamp", "The raw timestamp of the message in Nanoseconds since epoch."
       "Tick Type", "The type of tick (e.g., trade, quote)."
       "Symbol", "The stock symbol (e.g., MSFT, AAPL)."
@@ -69,9 +68,9 @@ The parsed data will be saved in the `parsed_folder` directory. Currently, two t
 
    .. csv-table::
 
-      Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Size,Price,Trade ID,Sale Condition
-      1696248274476274944,1696248274476249406,60091,1696248274475865577,T,MSFT,10,316.350000,2275739,EXTENDED_HOURS|ODD_LOT
-      1696248522899780096,1696248522899762796,70817,1696248522899669709,T,AAPL,20,171.410000,2683260,EXTENDED_HOURS|ODD_LOT
+      Packet Capture Time,Send Time,Exchange Timestamp,Tick Type,Symbol,Size,Price,Trade ID,Sale Condition
+      1696248433848282112,1696248433848263608,1696248433848175696,T,MSFT,20,316.250000,2546905,EXTENDED_HOURS|ODD_LOT
+      1696248522899780096,1696248522899762796,1696248522899669709,T,AAPL,20,171.410000,2683260,EXTENDED_HOURS|ODD_LOT
 
 
 + Price Level Update schema
@@ -81,7 +80,6 @@ The parsed data will be saved in the `parsed_folder` directory. Currently, two t
 
       "Packet Capture Time", "The time when the packet was captured in nanoseconds since epoch."
       "Send Time", "The time when the message was sent in nanoseconds since epoch."
-      "Message ID", "The unique identifier for the message."
       "Raw Timestamp", "The raw timestamp of the message in nanoseconds since epoch."
       "Tick Type", "The type of tick (e.g., trade, quote)."
       "Symbol", "The stock symbol (e.g., MSFT, AAPL)."
@@ -95,6 +93,6 @@ The parsed data will be saved in the `parsed_folder` directory. Currently, two t
 
    .. csv-table::
 
-      Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Price,Size,Record Type,Flag,ASK
-      1696248000327041024,1696248000326948634,45631,1696248000184809932,PRL,MSFT,348.000000,20,R,1,1
-      1696249295813316096,1696249295813302703,104927,1696249295813269151,PRL,AAPL,171.130000,243,R,1,1
+      Packet Capture Time,Send Time, Buy_Ask Flag,Exchange Timestamp,Tick Type,Symbol,Price,Size,Record Type,Event Flag
+      1696248000327041024,1696248000326948634,1,1696248000184809932,PRL,MSFT,348.000000,20,R,1
+      1696249295813316096,1696249295813302703,1,1696249295813269151,PRL,AAPL,171.130000,243,R,1
