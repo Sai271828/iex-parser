@@ -22,7 +22,7 @@ private:
     bool write_flag;
     string symbols_of_interest_file;
     int cur_packet_message_count;
-    int total_num_messages_processed;
+    // int total_num_messages_processed;
     std::fstream symbols_file;
     string trade_messages = "";
     std::thread writerThread;
@@ -52,7 +52,7 @@ public:
     BasicPcapParser(std::string filename, std::string output_filename, std::string symbols_of_interest_file) : filename(filename), output_filename(output_filename),symbols_of_interest_file(symbols_of_interest_file) {
     // Initialization of variables
         cur_packet_message_count = 0;
-        total_num_messages_processed = 0;
+        // total_num_messages_processed = 0;
     }
 
     // Function to unpack the pcap packet header
@@ -288,7 +288,7 @@ double read_packet() {
 
     // Iterate through each message in the payload
     for (size_t i = 0; i < message_count; ++i) {
-        total_num_messages_processed++;
+        // total_num_messages_processed++;
 
         // Extract the length of the current message
         uint16_t tuple_message_len;

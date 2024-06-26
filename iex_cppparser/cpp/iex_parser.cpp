@@ -9,7 +9,7 @@
 #include <iomanip>
 #include <string>
 #include <algorithm>
-#include "/vagrant/utils/logger.h"
+#include "logger.h"
 #include "decode_messages.h"
 #include <typeinfo>
 using namespace std;
@@ -20,7 +20,7 @@ private:
     string output_filename;
     string symbols_of_interest_file;
     int cur_packet_message_count;
-    int total_num_messages_processed;
+    // int total_num_messages_processed;
     std::fstream symbols_file;
     string trade_messages = "";
     string prl_messages = "";
@@ -46,7 +46,7 @@ public:
     BasicPcapParser(std::string filename, std::string output_filename, std::string symbols_of_interest_file) : filename(filename), output_filename(output_filename),symbols_of_interest_file(symbols_of_interest_file) {
     // Initialization of variables
         cur_packet_message_count = 0;
-        total_num_messages_processed = 0;
+        // total_num_messages_processed = 0;
     }
 
     // Function to unpack the pcap packet header
@@ -115,8 +115,8 @@ public:
         trades_output_file.open(output_filename + "_trd.csv");
         prl_output_file.open(output_filename + "_prl.csv");
 
-        trades_output_file << "Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Size,Price,Trade ID,Sale Condition\n";
-        prl_output_file << "Packet Capture Time,Send Time,Message ID,Raw Timestamp,Tick Type,Symbol,Price,Size,Record Type,Flag,ASK\n";
+        trades_output_file << "Packet Capture Time,Send Time,Raw Timestamp,Tick Type,Symbol,Size,Price,Trade ID,Sale Condition\n";
+        prl_output_file << "Packet Capture Time,Send Time,Raw Timestamp,Tick Type,Symbol,Price,Size,Record Type,Flag,ASK\n";
 
         output_filenames << output_filename + "_trd.csv" << endl;
         output_filenames << output_filename + "_prl.csv" << endl;
@@ -257,8 +257,8 @@ public:
 
         // Iterate through each message in the payload
         for (size_t i = 0; i < message_count; ++i) {
-            total_num_messages_processed++;
-            size_t message_id = total_num_messages_processed;
+            // total_num_messages_processed++;
+            // size_t message_id = total_num_messages_processed;
 
             // Extract the length of the current message
             uint16_t tuple_message_len;
@@ -288,7 +288,7 @@ public:
         // Convert the message type byte to a string
         string message_type(1, message_type_byte);
         // Get the message ID
-        int message_id = total_num_messages_processed;
+        // int message_id = total_num_messages_processed;
 
         // Process different message types
         if (message_type == "T") {

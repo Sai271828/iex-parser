@@ -42,7 +42,7 @@ def parse_file(file_path: str, parsed_folder: str, symbol: str, split: bool = Fa
     Returns:
         None
     """
-    if split=="True":
+    if split==True:
         # Use compiled C++ binary to parse and split output files
         IEX_PARSER = os.path.join(dir_path, 'bin/iex_parser_split.out')
     else:
