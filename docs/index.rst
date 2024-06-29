@@ -15,7 +15,7 @@ Contents
 IEX Parser Documentation
 ===================================
 
-The IEX exchange offers two types of historical data: DEEP and TOPS, both provided as PCAP files capturing network activity. This package provides a convenient API for extracting data from DEEP files. These files contain various types of messages, such as trade reports, bid submissions, security messages, etc. Currently, our package supports parsing two specific types of messages:
+The IEX exchange offers two types of historical data: DEEP and TOPS, both provided as PCAP files capturing network activity (see :doc:`iex_format` for more details). This package provides a convenient API for extracting data from DEEP files . These files contain various types of messages, such as trade reports, bid submissions, security messages, etc. Currently, our package supports parsing two specific types of messages:
 
 * **Trade reports** - Detailed records of executed trades.
 * **Price level updates** - Information about changes in the bid and ask price levels.
