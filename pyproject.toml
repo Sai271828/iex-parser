@@ -21,6 +21,7 @@ classifiers = [
 dependencies = [
     "tqdm >= 4.62.3",
     "requests >= 2.25.1",
+    "pytest"
 ]
 requires-python = ">=3.7"
 
