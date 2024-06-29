@@ -29,10 +29,30 @@ Key benefits:
       * **Event timestamp**: Indicates when the event happened in the matching engine.
       * **Packet send timestamp**: Indicates when the packet was sent.
       * **Packet capture timestamp**: Indicates when the packet was captured.
+      These timestamps provide insights into the time delay between event occurrence time and the data reception time, enabling more accurate backtesting.
+* **Easy-to-use API**: Provides a simple interface for extracting data from DEEP files.
+* **OneTick compatibility**: The output format is compatible with OneTick, a popular time-series database for financial data.
+For detailed information on the essential software requirements, consult the :doc:`usage` section. To find instructions for installation, refer to :ref:`installation`.
 
 
+Acknowledgement
+===============
 
-Check out the :doc:`usage` section for further information, including :ref:`installation` of this project.
+This project extends the work of the authors done as part of IE 421 course at `University of Illinois Urbana-Champaign <https://illinois.edu/>`_. The previous project repository can be found at `this link <https://gitlab.engr.illinois.edu/ie421_high_frequency_trading_spring_2024/ie421_hft_spring_2024_group_03/group_03_project>`_ (a private UIUC repository at the time of this writing).
+
+Citing this Work
+================
+
+To cite this work in academic papers or publications, you can use the following BibTeX format::
+
+    @misc{bavisettyvasu,
+      author       = {Bavisetty, Venkata Sai Narayana and Vasu, Karthik},
+      title        = {IEX C++ Parser},
+      year         = {2024},
+      publisher    = {GitHub},
+      journal      = {GitHub Repository},
+      howpublished = {\url{[Repository URL](https://github.com/Sai271828/iex-parser)}}
+    }
 
 .. note::
 

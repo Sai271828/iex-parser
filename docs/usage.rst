@@ -40,7 +40,7 @@ Run the following python script
 >>> parse_date("2023-10-30",download_folder,parsed_folder,"symbols.txt",download=True)
 
 Output
-----------------
+================
 
 
 The parsed data will be saved in the `parsed_folder` directory. Currently, two types of data are being parsed: trade reports and price levels. The schemas are as follows
