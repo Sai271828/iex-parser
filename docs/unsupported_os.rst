@@ -9,6 +9,7 @@ To compile the program, ensure you have a C++ compiler installed (e.g., g++) and
 .. code-block:: bash
 
     g++ -O2 logger.cpp decode_messages.cpp iex_parser_threaded.cpp -o iex_parser_threaded.out -pthread
+    g++ -O2 logger.cpp decode_messages.cpp iex_parser_all_threaded.cpp -o iex_parser_all_threaded.out -pthread
     g++ -O2 logger.cpp decode_messages.cpp iex_parser.cpp -o iex_parser.out
     g++ -O2 logger.cpp decode_messages.cpp iex_parser_split.cpp -o iex_parser_split.out
 
