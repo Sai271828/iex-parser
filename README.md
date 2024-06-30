@@ -14,7 +14,9 @@ The IEX exchange offers two types of historical data: DEEP and TOPS, both provid
 	+ **Event timestamp** (from the matching engine)
 	+ **Packet send timestamp**
 	+ **Packet capture timestamp**
-
+These timestamps provide insights into the time delay between event occurrence time and the data reception time, enabling more accurate backtesting. For a more detailed explanation of Market data see [market data format](https://iex-parser.readthedocs.io/iex_format.html)
+* **Easy-to-use API**: Provides a simple interface for extracting data from DEEP files.
+* **OneTick compatibility**: The output format is compatible with OneTick, a popular time-series database for financial data.
 ## Requirements
 
 This requires Linux OS or Windows WSL terminal to run. It also requires additional softwares that are listed at [requirements](https://iex-parser.readthedocs.io/usage.html).
@@ -34,7 +36,7 @@ MSFT
 ```
 3. Run the following python script
 ```
-from iex_parser import parse_date
+from iex_cppparser import parse_date
 
 download_folder = ...
 
@@ -43,14 +45,14 @@ parsed_folder = ...
 parse_date("2023-10-30",download_folder,parsed_folder,"symbols.txt")
 ```
 
+For an extensive list of parsing and downloading functions see [documentation](https://iex-parser.readthedocs.io/functions.html).
+
 ## Output
 The output CSV file contains parsed trade reports and price level updates.
 
-
-
 ## Acknowledgement
 
-This project extends the work of the authors done as part of  IE 421 course at [University of Illinois Urbana-Champaign](https://illinois.edu/) . The previous project repository can be found at [this link](https://gitlab.engr.illinois.edu/ie421_high_frequency_trading_spring_2024/ie421_hft_spring_2024_group_03/group_03_project) (a private UIUC repository at the time of this writing).
+This project extends the work of the authors done as part of  IE 421 course at [University of Illinois Urbana-Champaign](https://illinois.edu/). The previous project repository can be found at [this link](https://gitlab.engr.illinois.edu/ie421_high_frequency_trading_spring_2024/ie421_hft_spring_2024_group_03/group_03_project) (a private UIUC repository at the time of this writing).
 
 
 ## Citing this Work

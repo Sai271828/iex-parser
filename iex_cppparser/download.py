@@ -48,6 +48,9 @@ def download_hist_file(date: str, download_dir: str) -> bool:
         
     Returns:
         bool: True if the file was downloaded or already existed, False otherwise.
+
+    Output:
+        The file is downloaded to the specified directory and has the following format: data_feeds_{date}_{date}_IEXTP1_DEEP1.0.pcap.gz
     """
 
     # Check if the date is valid
@@ -91,4 +94,4 @@ def download_hist_file(date: str, download_dir: str) -> bool:
     
 if __name__ == "__main__":
     date = "20231002"
-    download_hist_file(date, "C:\\Users\\karth\\Code\\iex-parser\\iex_parser")
+    download_hist_file(date, "download directory")

@@ -41,6 +41,14 @@ def parse_file(file_path: str, parsed_folder: str, symbol: str, split: bool = Fa
         
     Returns:
         None
+
+    Output:
+        Two files are generated:
+
+        - The file ending in `_trd.csv` contains the trades data.
+        
+        - The file ending in `_prl.csv` contains the price level updates.
+
     """
     if split==True:
         # Use compiled C++ binary to parse and split output files
@@ -77,6 +85,14 @@ def parse_date(date_str: str, download_dir: str, parsed_folder: str, symbol: str
         
     Returns:
         None
+
+    Output:
+        Two files are generated:
+
+        - The file ending in `_trd.csv` contains the trades data.
+
+        - The file ending in `_prl.csv` contains the price level updates.
+
     """
     if valid_date(date_str) is None:
         return
@@ -114,6 +130,14 @@ def parse_dates(start_date: str, end_date: str, download_dir: str, parsed_folder
     
     Returns:
         None
+
+    Output:
+        For each date, two files are generated:
+        
+        - The file ending in `_trd.csv` contains the trades data.
+
+        - The file ending in `_prl.csv` contains the price level updates.
+
     """
     if valid_date(start_date) is None or valid_date(end_date) is None:
         return
