@@ -34,7 +34,7 @@ Create a `symbols.txt` file to filter the desired symbols
 
 Run the following python script
 
->>> from iex_parser import parse_date
+>>> from iex_cppparser import parse_date
 >>> download_folder = ...
 >>> parsed_folder = ...
 >>> parse_date("2023-10-30",download_folder,parsed_folder,"symbols.txt",download=True)
