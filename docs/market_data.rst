@@ -1,4 +1,4 @@
-Trading and Trade Execution
+Financial Markets and Trading
 ===========================
 
 Introduction
