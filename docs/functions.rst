@@ -1,11 +1,12 @@
 Package Functions
 =================
 
+The package provides the following functions for downloading and parsing historical DEEP data from IEX. The parse functions run a built C++ parser to extract data from the PCAP files. For a detailed explanation of the data format, refer to the :ref:`usage` section.
 
 Download historical data from IEX
 -----------------
 
-The following functions are available for downloading historical data from IEX.
+The package provides a function to download historical data from IEX. The function downloads the data for a specific date and saves it to the specified directory. If the file already exists, the function skips the download.
 
 
 .. autofunction:: iex_cppparser.download.download_hist_file
@@ -26,6 +27,7 @@ Parse historical data from IEX
 ------------------
 
 
+The package offers several functions for parsing historical data from IEX. The `parse_file` function allows for parsing any IEX DEEP file. If you need to download and parse data, you can use the `parse_date` or `parse_dates` functions. Additionally, these functions support splitting the parsed data into separate files based on the symbols present in the data.
 
 .. autofunction:: iex_cppparser.parse_file
 
