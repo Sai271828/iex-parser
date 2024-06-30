@@ -98,19 +98,15 @@ In the next section, we will explore the various protocols and formats used by I
 IEX Market Data Formats
 ------------------------
 
-UDP Transmission
-^^^^^^^^^^^^^^^^
 
-1. **Data Transmission**: IEX DEEP data is transmitted via UDP (User Datagram Protocol) for low-latency distribution. UDP is preferred for market data to minimize transmission delays and ensure timely updates to market participants.
+IEX DEEP data is transmitted via UDP multicast. UDP is preferred for market data to minimize transmission delays and ensure timely updates to market participants.
+UDP packets contain encoded market data in a structured format. Each packet includes information such as trade prices, volumes, quote updates, and other relevant market data.
 
-2. **Packet Structure**: UDP packets contain encoded market data in a structured format. Each packet includes information such as trade prices, volumes, quote updates, and other relevant market metrics.
 
-TCP Capture Format
-^^^^^^^^^^^^^^^^^^
+IEX also provides historical data, which is essentially a copy of the UDP multicast feed captured every day. This historical data is stored in PCAP files, which can be parsed to extract trade reports, price levels, and other market data.
 
-1. **Capture Mechanism**: Market participants capture UDP packets containing IEX DEEP data using TCP (Transmission Control Protocol) capture mechanisms. TCP is used for reliable data capture and transmission over networks.
+.. image:: exchange.png
+   :width: 600px
+   :align: center
 
-2. **Data Dumping**: Captured UDP packets are decoded and dumped into a more accessible format, such as JSON or CSV, for further analysis and integration into trading systems and analytics platforms.
-
-3. **Data Integrity**: TCP ensures that all UDP packets are captured without loss, providing accurate and complete market data for analysis.
 
