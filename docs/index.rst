@@ -6,6 +6,7 @@ Contents
    :maxdepth: 1
 
    Home <self>
+   market_data
    usage
    functions
    unsupported_os
