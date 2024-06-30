@@ -33,10 +33,14 @@ Trade Execution Process
 3. **Price Determination**: The current market price is determined by the highest price a buyer is willing to pay (bid) and the lowest price a seller is willing to accept (ask).
 
 4. **Execution**:
-   - **Market Orders**: Execute immediately at the best available price.
-   - **Limit Orders**: Execute only if the market reaches the specified price or better.
-   - **Stop Orders**: Trigger a market order when the stop price is reached.
-   - **Stop-Limit Orders**: Trigger a limit order when the stop price is reached, with a specified limit price.
+
+      - **Market Orders**: Execute immediately at the best available price.
+
+      - **Limit Orders**: Execute only if the market reaches the specified price or better.
+
+      - **Stop Orders**: Trigger a market order when the stop price is reached.
+
+      - **Stop-Limit Orders**: Trigger a limit order when the stop price is reached, with a specified limit price.
 
 Bids Submission
 ^^^^^^^^^^^^^^^
@@ -78,7 +82,9 @@ Market Data Dissemination
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. **Real-time Data**: Exchanges disseminate real-time market data including:
+
    - **Trade Data**: Information about executed trades, including price, volume, and timestamp.
+
    - **Quote Data**: Bid and ask prices, along with their respective volumes.
    
 2. **Historical Data**: Exchanges provide historical market data, allowing traders and analysts to analyze past trends and behavior. This data is crucial for backtesting trading strategies and conducting research.
@@ -89,7 +95,9 @@ IEX Market Data
 The Investors Exchange (IEX) provides market data with a focus on transparency and fairness. Historical data from IEX includes:
 
 - **Trade Data**: Detailed records of executed trades, including price, volume, and trade conditions.
+
 - **Quote Data**: Real-time bid and ask prices along with depth-of-book information.
+
 - **Market Metrics**: Additional metrics like market-wide circuit breakers and trading halts.
 
 IEX's market data is accessible through various APIs and data providers, enabling market participants to analyze historical trends and make informed trading decisions.
