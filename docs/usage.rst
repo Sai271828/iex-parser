@@ -17,7 +17,7 @@ To use the IEX Parser, first install it using pip:
 
 .. code-block:: console
 
-   $ pip install -i https://test.pypi.org/simple/ iex-parser   
+   $ pip install iex-cppparser
 
 .. _usage:
 

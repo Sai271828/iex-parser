@@ -26,7 +26,7 @@ This requires Linux OS or Windows WSL terminal to run. It also requires addition
 1. Install this package using pip.
 ### UPDATE AFTER MIGRATION!!!
 ```
-pip install -i https://test.pypi.org/simple/ iex-parser
+pip install iex-cppparser
 ```
 1. Create a `symbols.txt` file to filter the desired symbols
 ```
