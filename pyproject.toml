@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "iex-cppparser"
-version = "1.0.0"
+version = "1.0.1"
 description = "A downloader and parser for IEX DEEP historical data using C++ backend."
 readme = "README.md"
 authors = [
