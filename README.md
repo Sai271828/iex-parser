@@ -16,7 +16,7 @@ The IEX exchange offers two types of historical data: DEEP and TOPS, both provid
 	+ **Packet send timestamp**
 	+ **Packet capture timestamp**
   
-These timestamps provide insights into the time delay between event occurrence time and the data reception time, enabling more accurate backtesting. For a more detailed explanation of Market data see [market data format](https://iex-parser.readthedocs.io/iex_format.html)
+These timestamps provide insights into the time delay between event occurrence time and the data reception time, enabling more accurate backtesting. For a more detailed explanation of Market data see [market data format](https://iex-parser.readthedocs.io/iex_format.html).
 * **Easy-to-use API**: Provides a simple interface for extracting data from DEEP files.
 * **OneTick compatibility**: The output format is compatible with OneTick, a popular time-series database for financial data.
 ## Requirements
