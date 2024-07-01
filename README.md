@@ -1,4 +1,5 @@
 [![Documentation Status](https://readthedocs.org/projects/iex-parser/badge/?version=latest)](https://iex-parser.readthedocs.io/?badge=latest)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/iex-cppparser)](https://pypi.org/project/iex-cppparser/)
 
 # IEX Data Download and Parsing
 
