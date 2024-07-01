@@ -37,7 +37,7 @@ def parse_file(file_path: str, parsed_folder: str, symbol: str, split: bool = Fa
 
         symbol (str): Path to a txt file with symbols to parse. Must have one symbol per line. If "ALL", all symbols are parsed.
 
-        split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
+        split (bool): Whether to split the output files. One file per letter of the alphabet is generated. Default is False. Using split=True will slow down the parsing process as it will not be multi-threaded. USe this only if you have memory constraints.
         
     Returns:
         None
@@ -81,7 +81,7 @@ def parse_date(date_str: str, download_dir: str, parsed_folder: str, symbol: str
 
         download (bool): Whether to download the files. Default is True.
 
-        split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
+        split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False. Using split=True will slow down the parsing process as it will not be multi-threaded. USe this only if you have memory constraints.
         
     Returns:
         None
@@ -126,7 +126,7 @@ def parse_dates(start_date: str, end_date: str, download_dir: str, parsed_folder
 
         download (bool): Whether to download the files. Default is False.
         
-        split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False.
+        split (bool): Whether to split the output files. One file per letter of the anphabet is generated. Default is False. Using split=True will slow down the parsing process as it will not be multi-threaded. USe this only if you have memory constraints.
     
     Returns:
         None

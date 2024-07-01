@@ -13,6 +13,10 @@
 using namespace std;
 Log logger;
 
+// This file contains functions to decode messages from the binary format used by the IEX DEEP feed.
+// The functions in this file are used by the main program to decode messages and write them to the output file.
+// Currently, the program can decode trade reports and price level updates.
+// You can add additional functions to decode other message types as needed.
 
 // Function to convert trade sale condition flags to a string
 string convert_trade_sale_condition_to_string(char sale_condition_flags) {

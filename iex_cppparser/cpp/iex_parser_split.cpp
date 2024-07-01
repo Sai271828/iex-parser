@@ -13,6 +13,18 @@
 #include "decode_messages.h"
 using namespace std;
 
+// This file is a version of iex_parser.cpp that splits the output into separate files for each symbol based on the first letter of the symbol.
+// This C++ program reads a pcap file containing IEX DEEP feed messages and parses the messages to extract trade reports and price level updates.
+// The program writes the extracted messages to separate output files for trade reports and price level updates.
+// The program also writes the packet capture time and send time for each message to the output files.  
+// There are two main things that need parsing: the PCAP header and the IEX payload.
+// The PCAP header is 16 bytes long and contains the timestamp and the length of the packet.
+// The parsing of the PCAP header is implemented in the unpackPcapPacketHeader function.
+// The IEX payload contains the IEX header and the messages. The IEX header contains the payload length, send time of the packet and the number of messages.
+// The main ]-parsing logic is implemented in the parse_iex_payload and parse_iex_message functions.
+// The parse_iex_message function uses the decode_messages.h functions to parse the trade reports and price level updates.
+// To add support for additional message types, you can add new functions to decode_messages.h and call them in this file.
+
 class BasicPcapParser {
 private:
     string filename; 
