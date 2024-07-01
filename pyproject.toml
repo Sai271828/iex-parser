@@ -10,7 +10,7 @@ description = "A downloader and parser for IEX DEEP historical data using C++ ba
 readme = "README.md"
 authors = [
     { name = "Karthik Vasu", email = "karthikvasu09@gmail.com" },
-    { name = "Venkata Sai Bavisetty", email = "vb8@illinois.edu" },
+    { name = "Venkata Sai Bavisetty", email = "venkatasainarayana@gmail.com" },
 ]
 keywords = []
 classifiers = [
