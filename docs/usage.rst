@@ -12,8 +12,7 @@ Installation
 
 To use the IEX Parser, first install it using pip:
 
-   
-   `Will need to be edited to point to the correct location of the package!!!`
+ 
 
 .. code-block:: console
 
