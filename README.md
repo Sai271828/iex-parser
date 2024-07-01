@@ -25,7 +25,7 @@ This requires Linux OS or Windows WSL terminal to run. It also requires addition
 ## How to use
 
 1. Install this package using pip.
-### UPDATE AFTER MIGRATION!!!
+
 ```
 pip install iex-cppparser
 ```
