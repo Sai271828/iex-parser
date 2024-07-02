@@ -1,6 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/iex-parser/badge/?version=latest)](https://iex-parser.readthedocs.io/?badge=latest)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/iex-cppparser)](https://pypi.org/project/iex-cppparser/)
-
+[![Downloads](https://static.pepy.tech/badge/iex-cppparser)](https://pepy.tech/project/iex-cppparser)
 # IEX Data Download and Parsing
 
 The IEX exchange offers two types of historical data: DEEP and TOPS, both provided as PCAP files capturing network activity. This package provides a convenient API for extracting data from DEEP files. These files contain various types of messages, such as trade reports, bid submissions, security messages etc. Currently, our package supports parsing two specific types of messages:
