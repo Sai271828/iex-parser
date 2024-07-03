@@ -125,7 +125,7 @@ int parse(int max_packets_to_parse) {
         // Read each line from the file and add to the symbols list
         std::string line;
         while (std::getline(symbols_file, line)) {
-            symbols_list.push_back(line.substr(0, line.size() - 1)); // Remove newline character
+            symbols_list.push_back(line.substr(0, line.size())); // Remove newline character
         }
         std::cout << "Read " << symbols_list.size() << " symbols from the file.\n";
         symbols_file.close(); // Close the file

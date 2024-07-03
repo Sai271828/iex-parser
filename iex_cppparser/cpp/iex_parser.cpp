@@ -97,7 +97,7 @@ public:
             std::string line;
 
             while (std::getline(symbols_file, line)) { // read each line from the file
-                symbols_list.push_back(line.substr(0, line.size()-1)); // add the line to the vector without the newline character
+                symbols_list.push_back(line.substr(0, line.size())); // add the line to the vector without the newline character
             }
 
             std::cout << "Read " << symbols_list.size() << " symbols from the file.\n";
