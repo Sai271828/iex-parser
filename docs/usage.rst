@@ -18,6 +18,11 @@ To use the IEX Parser, first install it using pip:
 
    $ pip install iex-cppparser
 
+Compile the cpp files by running the following python script
+
+>>> from iex_cppparser import compile_cpp
+>>> compile_cpp.compile()
+
 .. _usage:
 
 Usage
@@ -31,10 +36,7 @@ Create a `symbols.txt` file to filter the desired symbols
    MSFT
 
 
-Compile the cpp files by running the following python script
 
->>> from iex_cppparser import compile_cpp
->>> compile_cpp.compile()
 
 Run the following python script
 

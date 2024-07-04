@@ -29,19 +29,22 @@ This requires Linux OS or Windows WSL terminal to run. It also requires addition
 ```
 pip install iex-cppparser
 ```
-1. Create a `symbols.txt` file to filter the desired symbols
-```
-AAPL
-MSFT
 
-```
 2. Compile the cpp files by running the following python script
 
 ```
 from iex_cppparser import compile_cpp
 compile_cpp.compile()
 ```
-3. Run the following python script
+
+3. Create a `symbols.txt` file to filter the desired symbols
+```
+AAPL
+MSFT
+
+```
+
+4. Run the following python script
 ```
 from iex_cppparser import parse_date
 
