@@ -31,6 +31,11 @@ Create a `symbols.txt` file to filter the desired symbols
    MSFT
 
 
+Compile the cpp files by running the following python script
+
+>>> from iex_cppparser import compile_cpp
+>>> compile_cpp.compile()
+
 Run the following python script
 
 >>> from iex_cppparser import parse_date
