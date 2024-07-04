@@ -109,7 +109,7 @@ def parse_date(date_str: str, download_dir: str, parsed_folder: str, symbol: str
         parse_file(file_path, parsed_folder, symbol,split=split)
 
 
-def parse_dates(start_date: str, end_date: str, download_dir: str, parsed_folder: str, symbol: str, download: bool = False, split: bool = False):
+def parse_dates(start_date: str, end_date: str, download_dir: str, parsed_folder: str, symbol: str, download: bool = True, split: bool = False):
     """
     This function parses a range of dates and (downloads and) parses the corresponding IEXTP1 DEEP1.0 pcap files.
     

@@ -67,4 +67,4 @@ The package offers several functions for parsing historical data from IEX. The `
 
     from iex_cppparser import parse_dates
 
-    parse_dates("2023-10-10", "2023-10-12", "/path/to/download", "/path/to/parsed", "symbols.txt", download=False, split=True)
+    parse_dates("2023-10-10", "2023-10-12", "/path/to/download", "/path/to/parsed", "symbols.txt", download=True, split=True)
