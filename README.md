@@ -35,6 +35,12 @@ AAPL
 MSFT
 
 ```
+2. Compile the cpp files by running the following python script
+
+```
+from iex_cppparser import compile_cpp
+compile_cpp.compile()
+```
 3. Run the following python script
 ```
 from iex_cppparser import parse_date
