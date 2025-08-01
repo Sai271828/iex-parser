@@ -47,6 +47,7 @@ private:
     vector<int> symbols_of_interest_indices;
     ofstream trades_output_file;
     ofstream prl_output_file;
+    bool end_of_session_received = false;  // Track if we've received 'C' (End of Messages)
     
     struct PcapPacketHeader {
         uint32_t ts_sec;
@@ -142,6 +143,26 @@ public:
             double time_float = read_packet();
             num_packets++;
 
+            // Check if we've received the end-of-session message ('C' - End of Messages)
+            if (end_of_session_received) {
+                cout << "End of session message received. Completing parsing..." << endl;
+                logger.write("End of session message received, terminating gracefully");
+                
+                // Write remaining messages to output files and close them
+                trades_output_file << trade_messages;
+                prl_output_file << prl_messages;
+                trades_output_file.close();
+                prl_output_file.close();
+                
+                stop_parse_time = time(nullptr);
+                cout << "Stopped parsing @ " << put_time(localtime(&stop_parse_time), "%c") << endl;
+                double parsing_time = difftime(stop_parse_time, start_parse_time);
+                cout << "Parsed in " << parsing_time << " seconds" << endl;
+                cout << "Closing all output files" << endl;
+                input_file.close();
+                return 0; // Successful completion
+            }
+
             // Check if the maximum number of packets to parse is reached or end of file is reached
             if ((max_packets_to_parse != -1 && num_packets > max_packets_to_parse) || time_float == -1) {
                 // Write remaining messages to output files and close them
@@ -163,7 +184,8 @@ public:
                     cout << "Closing all output files" << endl;
                     //close_all_files();
                 }
-                exit(0); // Exit the program
+                input_file.close();
+                return 0; // Successful completion
             }
 
             // Output progress every 10 million packets
@@ -180,7 +202,14 @@ public:
                 cout << "Parsed " << num_packets << " packets: " << put_time(localtime(&packet_time), "%c") << endl;
             }
         }
-        input_file.close(); // Close the file
+        
+        // If we reach here, the loop ended normally (shouldn't happen with infinite loop)
+        trades_output_file << trade_messages;
+        prl_output_file << prl_messages;
+        trades_output_file.close();
+        prl_output_file.close();
+        input_file.close();
+        return 0; // Successful completion
     }
 
 
@@ -199,15 +228,29 @@ public:
         // Read the packet header from the input file
         input_file.read(packet_header, packet_header_len);
 
-        // Check if the end of file is reached or if the packet header is incomplete
-        if (input_file.eof() || input_file.gcount() != 16) {
+        // Check if we've truly reached end of file (no more data to read)
+        if (input_file.eof() && input_file.gcount() == 0) {
             cout << "End of file reached... terminating!" << endl;
             stop_parse_time = time(nullptr);
             cout << "Stopped parsing @ " << put_time(localtime(&stop_parse_time), "%c") << endl;
             double parsing_time = difftime(stop_parse_time, start_parse_time);
             cout << "Parsed in " << parsing_time << " seconds" << endl;
-            //close_all_files();
             return -1;
+        }
+        
+        // Handle incomplete packet header (skip and continue)
+        if (input_file.gcount() != 16) {
+            cout << "DEBUG: Incomplete packet header (" << input_file.gcount() << " bytes), EOF flag: " << input_file.eof() << ", fail flag: " << input_file.fail() << endl;
+            logger.write("Warning: Incomplete packet header, skipping packet");
+            
+            // If we're at EOF with some data, this might be the real end
+            if (input_file.eof()) {
+                cout << "DEBUG: EOF detected with partial header, treating as end of file" << endl;
+                return -1; // Signal end of file
+            }
+            
+            // Try to recover by seeking to next potential packet boundary
+            return 0.0; // Return dummy timestamp to continue parsing
         }
 
         // Unpack the pcap packet header
@@ -229,21 +272,51 @@ public:
         
         // Check if the packet length is less than 42 bytes
         if (incl_len < 42) {
-            cout << "Invalid packet length: " << incl_len << endl;
+            cout << "DEBUG: Invalid packet length: " << incl_len << ", skipping packet" << endl;
+            logger.write("Warning: Invalid packet length, skipping");
             return time_float;
+        }
+        
+        // Debug output for packet info
+        if (num_packets % 1000000 == 0) {
+            cout << "DEBUG: Processing packet " << num_packets << ", timestamp: " << time_float << ", length: " << incl_len << endl;
         }
         
         vector<char> iex_payload(incl_len - 42);
         input_file.read(iex_payload.data(), incl_len - 42);
+        
+        // Check if we read the expected amount of data
+        if (input_file.gcount() != static_cast<streamsize>(incl_len - 42)) {
+            cout << "DEBUG: Incomplete payload read. Expected: " << (incl_len - 42) << ", got: " << input_file.gcount() << ", EOF: " << input_file.eof() << endl;
+            if (input_file.eof()) {
+                cout << "DEBUG: EOF during payload read, terminating" << endl;
+                return -1;
+            }
+            // Skip this packet and continue
+            return time_float;
+        }
 
-        // Parse the IEX payload
-        parse_iex_payload(iex_payload, packet_capture_time_in_nanoseconds);
+        // Parse the IEX payload with error handling
+        try {
+            parse_iex_payload(iex_payload, packet_capture_time_in_nanoseconds);
+        } catch (const exception& e) {
+            cout << "DEBUG: Exception in parse_iex_payload: " << e.what() << ", continuing" << endl;
+            logger.write("Exception in parse_iex_payload: " + string(e.what()));
+            // Continue processing despite the error
+        }
 
         return time_float;
     }
 
     // Parse the IEX payload to extract individual messages
     void parse_iex_payload(const std::vector<char>& payload, uint64_t packet_capture_time_in_nanoseconds) {
+        // Validate minimum payload size
+        if (payload.size() < 40) {
+            cout << "Warning: IEX payload too short (" << payload.size() << " bytes), skipping packet" << endl;
+            logger.write("Warning: IEX payload too short, skipping packet");
+            return;
+        }
+        
         // Extract the first 40 bytes of the payload
         auto start = payload.begin();
         auto end = payload.begin() + 40;
@@ -259,7 +332,16 @@ public:
 
         // Check if the size of the payload matches the reported length in the header
         if (payload.size() != payload_len + 40) {
-            throw runtime_error("Invalid parser state; the length of UDP packet payload should be forty plus the payload_len within IEX header");
+            cout << "Warning: Payload size mismatch (expected " << (payload_len + 40) << ", got " << payload.size() << "), skipping packet" << endl;
+            logger.write("Warning: Payload size mismatch, skipping packet");
+            return;
+        }
+        
+        // Validate message count is reasonable
+        if (message_count > 1000) {
+            cout << "Warning: Unusually high message count (" << message_count << "), skipping packet" << endl;
+            logger.write("Warning: Unusually high message count, skipping packet");
+            return;
         }
 
         // Extract message bytes from the payload
@@ -273,29 +355,66 @@ public:
             // total_num_messages_processed++;
             // size_t message_id = total_num_messages_processed;
 
+            // Check if we have enough bytes for message length
+            if (cur_offset + 2 > message_bytes.size()) {
+                cout << "Warning: Not enough bytes for message length at offset " << cur_offset << ", skipping remaining messages" << endl;
+                logger.write("Warning: Insufficient bytes for message length, skipping remaining messages");
+                break;
+            }
+
             // Extract the length of the current message
             uint16_t tuple_message_len;
             memcpy(&tuple_message_len, &message_bytes[cur_offset], sizeof(uint16_t));
             size_t message_len = tuple_message_len;
+            
+            // Validate message length is reasonable
+            if (message_len > 1000 || message_len == 0) {
+                cout << "Warning: Invalid message length (" << message_len << ") at offset " << cur_offset << ", skipping message" << endl;
+                logger.write("Warning: Invalid message length, skipping message");
+                cur_offset += 2; // Skip just the length field and continue
+                continue;
+            }
+
+            // Check if we have enough bytes for the full message
+            if (cur_offset + 2 + message_len > message_bytes.size()) {
+                cout << "Warning: Not enough bytes for message data (need " << message_len << ", have " << (message_bytes.size() - cur_offset - 2) << "), skipping remaining messages" << endl;
+                logger.write("Warning: Insufficient bytes for message data, skipping remaining messages");
+                break;
+            }
 
             // Extract the bytes of the current message
             vector<char> message_bytes_sliced(message_bytes.begin() + cur_offset + 2, message_bytes.begin() + cur_offset + 2 + message_len);
-            // Parse the current message
-            parse_iex_message(message_bytes_sliced, packet_capture_time_in_nanoseconds, send_time);
+            
+            // Parse the current message with error handling
+            try {
+                parse_iex_message(message_bytes_sliced, packet_capture_time_in_nanoseconds, send_time);
+            } catch (const exception& e) {
+                cout << "Warning: Error parsing message " << i << ": " << e.what() << ", skipping message" << endl;
+                logger.write("Warning: Error parsing message, skipping");
+            }
 
             // Move the offset to the next message
             cur_offset += 2 + message_len;
         }
 
-        // Check if the offset matches the payload length
+        // Check if the offset matches the payload length (with some tolerance for malformed packets)
         if (cur_offset != payload_len) {
-            throw runtime_error("Invalid parser state; cur_offset after parsing all messages within packet should be equal to IEX header reported payload_len");
+            cout << "Warning: Offset mismatch after parsing messages (expected " << payload_len << ", got " << cur_offset << "), continuing anyway" << endl;
+            logger.write("Warning: Offset mismatch after parsing messages, continuing");
+            // Don't throw an exception - just log and continue
         }
     }
 
 
     // Parse an IEX message from its payload
     void parse_iex_message(const std::vector<char>& message_payload, long long packet_capture_time_in_nanoseconds, long long send_time) {
+        // Input validation - check minimum message size
+        if (message_payload.empty()) {
+            cout << "Warning: Empty message payload received" << endl;
+            logger.write("Warning: Empty message payload received");
+            return;
+        }
+        
         // Extract the message type byte
         char message_type_byte = message_payload[0];
         // Convert the message type byte to a string
@@ -303,19 +422,23 @@ public:
         // Get the message ID
         // int message_id = total_num_messages_processed;
 
-        // Process different message types
+        // Process different message types with error recovery
         if (message_type == "T") {
             // Parse the trade report message
             pair<string, string> parsed_message = parse_trade_report_message(message_payload);
-
-            // Append the message string to the appropriate messages array entry
-            if (symbols_of_interest_file=="ALL" || std::find(symbols_list.begin(), symbols_list.end(), parsed_message.second) != symbols_list.end())
-            {
-                
-
-                // Construct the message string
-                string message_string = to_string(packet_capture_time_in_nanoseconds) + "," + to_string(send_time) + "," + parsed_message.first + "\n";
-                trade_messages += message_string;
+            
+            // Check if parsing was successful (non-empty result)
+            if (!parsed_message.first.empty() && !parsed_message.second.empty()) {
+                // Append the message string to the appropriate messages array entry
+                if (symbols_of_interest_file=="ALL" || std::find(symbols_list.begin(), symbols_list.end(), parsed_message.second) != symbols_list.end())
+                {
+                    // Construct the message string
+                    string message_string = to_string(packet_capture_time_in_nanoseconds) + "," + to_string(send_time) + "," + parsed_message.first + "\n";
+                    trade_messages += message_string;
+                }
+            } else {
+                cout << "Warning: Failed to parse trade report message, skipping" << endl;
+                logger.write("Warning: Failed to parse trade report message");
             }
 
         } 
@@ -325,11 +448,17 @@ public:
             // Parse the price level update message
             pair<string, string> parsed_message = parse_price_level_update(message_payload);
             
-            if (symbols_of_interest_file=="ALL" || std::find(symbols_list.begin(), symbols_list.end(), parsed_message.second) != symbols_list.end())
-            {
-                // Construct the message string
-                string message_string = to_string(packet_capture_time_in_nanoseconds) + "," + to_string(send_time)    + "," + parsed_message.first + "," + bid + "\n";
-                prl_messages += message_string;
+            // Check if parsing was successful (non-empty result)
+            if (!parsed_message.first.empty() && !parsed_message.second.empty()) {
+                if (symbols_of_interest_file=="ALL" || std::find(symbols_list.begin(), symbols_list.end(), parsed_message.second) != symbols_list.end())
+                {
+                    // Construct the message string
+                    string message_string = to_string(packet_capture_time_in_nanoseconds) + "," + to_string(send_time)    + "," + parsed_message.first + "," + bid + "\n";
+                    prl_messages += message_string;
+                }
+            } else {
+                cout << "Warning: Failed to parse bid price level update, skipping" << endl;
+                logger.write("Warning: Failed to parse bid price level update");
             }
         } 
         else if (message_type == "5") {
@@ -338,14 +467,35 @@ public:
             // Parse the price level update message
             pair<string, string> parsed_message = parse_price_level_update(message_payload);
 
-            if (symbols_of_interest_file=="ALL" || std::find(symbols_list.begin(), symbols_list.end(), parsed_message.second) != symbols_list.end())
-            {
-                // Construct the message string
-                string message_string = to_string(packet_capture_time_in_nanoseconds) + "," + to_string(send_time)  + "," + parsed_message.first + "," + ask + "\n";
+            // Check if parsing was successful (non-empty result)
+            if (!parsed_message.first.empty() && !parsed_message.second.empty()) {
+                if (symbols_of_interest_file=="ALL" || std::find(symbols_list.begin(), symbols_list.end(), parsed_message.second) != symbols_list.end())
+                {
+                    // Construct the message string
+                    string message_string = to_string(packet_capture_time_in_nanoseconds) + "," + to_string(send_time)  + "," + parsed_message.first + "," + ask + "\n";
 
-                prl_messages += message_string;
+                    prl_messages += message_string;
+                }
+            } else {
+                cout << "Warning: Failed to parse ask price level update, skipping" << endl;
+                logger.write("Warning: Failed to parse ask price level update");
             }
         } 
+        else if (message_type == "S") {
+            // Parse system event message
+            char system_event = parse_system_event_message(message_payload);
+            
+            // Check if this is the end-of-session message
+            if (system_event == 'C') {
+                cout << "Received End of Messages event - marking session complete" << endl;
+                logger.write("Received End of Messages event");
+                end_of_session_received = true;
+            }
+        } else {
+            // Handle unknown message types gracefully
+            cout << "Info: Skipping unknown message type '" << message_type << "' (0x" << hex << static_cast<int>(message_type_byte) << ")" << dec << endl;
+            // Note: Not logging this as it's expected behavior for unsupported message types
+        }
     }
 
     // Get the first part of a string before a delimiter

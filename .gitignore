@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C++ build artifacts
+*.o
+*.out
+*.so
+*.exe
+*.a
+*.dylib
+*.dll
+
+
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python virtual environments
+.venv/
+venv/
+ENV/
+
+# Coverage and profiling
+.coverage
+htmlcov/
+*.prof
+
+# Logs
+*.log

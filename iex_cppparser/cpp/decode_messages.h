@@ -9,5 +9,6 @@ using namespace std;
 
 pair<string, string> parse_trade_report_message(const vector<char>& payload);
 string convert_trade_sale_condition_to_string(char sale_condition_flags);
-pair<string, string> parse_price_level_update(const vector<char>& payload) ;
+pair<string, string> parse_price_level_update(const vector<char>& payload);
+char parse_system_event_message(const vector<char>& payload);
 #endif // PARSER_H
